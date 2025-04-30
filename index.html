@@ -14,8 +14,15 @@
         <input type="text" id="desc" placeholder="Enter Description" required>
     
         <button onclick="saveTransaction()">Proceed to Payment</button>
-      </div>
-    
-      <script src="smartSpending.js"></script>
+        <!-- in place of proceed to payment -->
+
+        <div id="transactionDetails" style="display:none; margin-top: 20px;">
+            <h3>Transaction Details</h3>
+            <p><strong>Transaction Number:</strong> <span id="transactionNumber"></span></p>
+            <p><strong>Description:</strong> <span id="transactionDesc"></span></p>
+            <p><strong>Amount:</strong> ₹<span id="transactionAmount"></span></p>
+        </div>
+
+        <script src="smartSpending.js"></script>
 </body>
 </html>
