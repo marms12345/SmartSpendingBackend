@@ -29,6 +29,9 @@ function saveTransaction() {
         date: new Date().toLocaleString()
     };
 
+    localStorage.setItem('lastTransaction', JSON.stringify(transaction));
+
+
     // Save to localStorage
     var transactions = JSON.parse(localStorage.getItem('transactions')) || [];
     transactions.push(transaction);
@@ -48,3 +51,15 @@ function saveTransaction() {
     // Optionally simulate a payment (if you don't want this, you can remove this line)
     // window.location.href = 'upi://pay?pa=9182523900@ybl&pn=Ryali.swamy naidu&am=' + amount + '&cu=INR';
 }
+
+
+window.onload = function () {
+    const lastTxn = JSON.parse(localStorage.getItem('lastTransaction'));
+    if (lastTxn) {
+        document.getElementById('transactionNumber').innerText = lastTxn.transactionNumber;
+        document.getElementById('transactionDesc').innerText = lastTxn.description;
+        document.getElementById('transactionAmount').innerText = lastTxn.amount;
+        document.getElementById('transactionDetails').style.display = 'block';
+    }
+};
+
