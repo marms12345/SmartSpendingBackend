@@ -4,7 +4,8 @@ const mongoose = require('mongoose');
 const transactionSchema = new mongoose.Schema({
   transactionNumber: {
     type: String,
-    required: true
+    required: true,
+    match: [/^\d{4}$/, 'Transaction number must be exactly 4 digits']
   },
   amount: {
     type: Number,
@@ -16,8 +17,8 @@ const transactionSchema = new mongoose.Schema({
     required: true
   },
   date: {
-    type: String, // Stored as locale string
-    required: true
+    type: Date,
+    default: Date.now,
   }
 });
 
