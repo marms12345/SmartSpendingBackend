@@ -59,7 +59,11 @@ const userSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now
-  }
+  },
+
+  //added these lines for to make the forgotpassword functionality
+  resetToken: String,
+  resetTokenExpiry: Date
 });
 
 const User = mongoose.model('User', userSchema);

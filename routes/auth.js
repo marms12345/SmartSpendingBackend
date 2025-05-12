@@ -1,7 +1,7 @@
 const express = require('express');
 //#################### use this when the react component is ready
 // const bcrypt = require('bcrypt');
-const User = require('./models/User'); // Import your User model
+const User = require('../models/User'); // Import your User model
 const router = express.Router();
 
 // Register route: POST /register
@@ -31,7 +31,7 @@ router.post('/register', async (req, res) => {
     await newUser.save();
 
     // Send a success response
-    res.status(201).json({ msg: 'User registered successfully' });
+    res.status(201).json({ msg: 'User registered successfully' ,newUser});
   } catch (err) {
     console.error(err);
     res.status(500).json({ msg: 'Server error during registration.' });
