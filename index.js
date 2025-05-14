@@ -36,7 +36,11 @@ app.use('/reset-password', require('./routes/reset-password'));
 //SignIn route
 app.use('/signin',require('./routes/signin'));
 
+//transaction data
 app.use('/expense',require('./routes/transaction'));
+
+//upload csv file
+app.use('/upload', require('./routes/uploadcsv'));
 
 // Define the port for the server to listen
 app.listen(5000, '0.0.0.0',()  => {
